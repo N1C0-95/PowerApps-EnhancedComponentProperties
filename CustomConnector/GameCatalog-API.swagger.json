@@ -1,0 +1,311 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "GameCatalog-API",
+    "description": "",
+    "version": "1.0"
+  },
+  "host": "addyourhost.com",
+  "basePath": "/",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [],
+  "produces": [],
+  "paths": {
+    "/games": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "default",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "upc": {
+                    "type": "string",
+                    "description": "upc"
+                  },
+                  "name": {
+                    "type": "string",
+                    "description": "name"
+                  },
+                  "shortDescription": {
+                    "type": "string",
+                    "description": "shortDescription"
+                  },
+                  "price": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "price"
+                  },
+                  "releasedDate": {
+                    "type": "string",
+                    "description": "releasedDate"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "GET-GAMEs",
+        "description": "",
+        "operationId": "GET-GAMEs",
+        "x-ms-visibility": "advanced",
+        "parameters": [
+          {
+            "name": "searchTerm",
+            "in": "query",
+            "required": false,
+            "type": "string"
+          }
+        ]
+      },
+      "post": {
+        "responses": {
+          "200": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "upc": {
+                  "type": "string",
+                  "description": "upc"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "name"
+                },
+                "shortDescription": {
+                  "type": "string",
+                  "description": "shortDescription"
+                },
+                "price": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "price"
+                },
+                "releasedDate": {
+                  "type": "string",
+                  "description": "releasedDate"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "default",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "propertyName": {
+                    "type": "string",
+                    "description": "propertyName"
+                  },
+                  "errorMessage": {
+                    "type": "string",
+                    "description": "errorMessage"
+                  },
+                  "attemptedValue": {
+                    "type": "string",
+                    "description": "attemptedValue"
+                  },
+                  "customState": {
+                    "type": "string",
+                    "description": "customState"
+                  },
+                  "severity": {
+                    "type": "integer",
+                    "format": "int32",
+                    "description": "severity"
+                  },
+                  "errorCode": {
+                    "type": "string",
+                    "description": "errorCode"
+                  },
+                  "formattedMessagePlaceholderValues": {
+                    "type": "object",
+                    "properties": {
+                      "additionalProp1": {
+                        "type": "string",
+                        "description": "additionalProp1"
+                      },
+                      "additionalProp2": {
+                        "type": "string",
+                        "description": "additionalProp2"
+                      },
+                      "additionalProp3": {
+                        "type": "string",
+                        "description": "additionalProp3"
+                      }
+                    },
+                    "description": "formattedMessagePlaceholderValues"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "summary": "POST-CREATE-GAME",
+        "operationId": "POST-CREATE-GAME",
+        "x-ms-visibility": "advanced",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "upc": {
+                  "type": "string",
+                  "description": "upc"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "name"
+                },
+                "shortDescription": {
+                  "type": "string",
+                  "description": "shortDescription"
+                },
+                "price": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "price"
+                },
+                "releasedDate": {
+                  "type": "string",
+                  "description": "releasedDate"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "/games/{upc}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "default",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "upc": {
+                  "type": "string",
+                  "description": "upc"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "name"
+                },
+                "shortDescription": {
+                  "type": "string",
+                  "description": "shortDescription"
+                },
+                "price": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "price"
+                },
+                "releasedDate": {
+                  "type": "string",
+                  "description": "releasedDate"
+                }
+              }
+            }
+          }
+        },
+        "summary": "GET-GAME-BY-UPC",
+        "operationId": "GET-GAME-BY-UPC",
+        "x-ms-visibility": "advanced",
+        "parameters": [
+          {
+            "name": "upc",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "delete": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "summary": "DELETE-GAME",
+        "operationId": "DELETE-GAME",
+        "x-ms-visibility": "advanced",
+        "parameters": [
+          {
+            "name": "upc",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ]
+      },
+      "put": {
+        "responses": {
+          "default": {
+            "description": "default",
+            "schema": {}
+          }
+        },
+        "summary": "PUT-GAME",
+        "operationId": "PUT-GAME",
+        "x-ms-visibility": "advanced",
+        "parameters": [
+          {
+            "name": "upc",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "upc": {
+                  "type": "string",
+                  "description": "upc"
+                },
+                "name": {
+                  "type": "string",
+                  "description": "name"
+                },
+                "shortDescription": {
+                  "type": "string",
+                  "description": "shortDescription"
+                },
+                "price": {
+                  "type": "integer",
+                  "format": "int32",
+                  "description": "price"
+                },
+                "releasedDate": {
+                  "type": "string",
+                  "description": "releasedDate"
+                }
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {},
+  "responses": {},
+  "securityDefinitions": {},
+  "security": [],
+  "tags": []
+}
