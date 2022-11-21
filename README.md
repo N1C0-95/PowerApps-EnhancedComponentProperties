@@ -1,1 +1,1 @@
-# PowerApps-BehaviorFunctionality
+# Component Library Behavior Functionality
