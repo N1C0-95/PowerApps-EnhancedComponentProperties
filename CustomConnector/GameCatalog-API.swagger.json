@@ -5,7 +5,7 @@
     "description": "",
     "version": "1.0"
   },
-  "host": "addyourhost.com",
+  "host": "addYourHost",
   "basePath": "/",
   "schemes": [
     "https"
